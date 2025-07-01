@@ -20,7 +20,12 @@ title.forEach((element, index) => {
       const aText = a.cells[index].textContent;
       const bText = b.cells[index].textContent;
 
-      if (cleanNumber(aText) && cleanNumber(bText)) {
+      if (
+        cleanNumber(aText) &&
+        cleanNumber(bText) &&
+        !isNaN(cleanNumber(aText)) &&
+        !isNaN(cleanNumber(bText))
+      ) {
         return cleanNumber(aText) - cleanNumber(bText);
       }
 
