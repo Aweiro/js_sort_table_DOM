@@ -19,13 +19,10 @@ title.forEach((element, index) => {
     tbody.sort((a, b) => {
       const aText = a.cells[index].textContent;
       const bText = b.cells[index].textContent;
+      const isValid = !isNaN(cleanNumber(bText));
+      const isNumber = cleanNumber(aText) && cleanNumber(bText);
 
-      if (
-        cleanNumber(aText) &&
-        cleanNumber(bText) &&
-        !isNaN(cleanNumber(aText)) &&
-        !isNaN(cleanNumber(bText))
-      ) {
+      if (isValid && isNumber) {
         return cleanNumber(aText) - cleanNumber(bText);
       }
 
